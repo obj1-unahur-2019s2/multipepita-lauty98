@@ -45,29 +45,119 @@ object sorgo
 	 	return 9
 	 }
 }
+// Resolucion del Mijo:
+// 1)
 object mijo
 {
-	var mojado = 15
-	var seco = 20
+	var energia = 0
+	
+	method mojarce()
+	{
+		   energia = 15 
+	}
+	method secarse()
+	{
+		energia = 20
+	} 
 	method energiaPorGramo()
 	{
-		if( =< mojado)
-	} 
+		return 50
+	}
 }
-/* */
+// 2)
+object mijo_alternativo
+{
+	var estaMojado = false
+	
+	method mojarce()
+	{
+		estaMojado = true
+	}
+	method secarse()
+	{
+		estaMojado = false
+	}
+	method energiaPorGramo()
+	{
+		   if(estaMojado)
+		   {
+		   	return 15
+		   }
+		   else
+		   {
+		   	return 20
+		   }
+	}
+
+}
+/*
+ * Soluciones para los canelones:
+ *  1)
+ */
 object canelones
 {
-	method energiaPorGramo()
+	var energia = 20
+	method ponerSalsa()
 	{
-		
+		energia += 5 
+	}
+	method sacarSalsa()
+	{
+		energia -= 5
+	}
+	method ponerQueso()
+	{
+		energia +=  7 
+	}
+	method sacarQueso()
+	{
+		energia -=7
 	}
 	method energiaPorGramo()
 	{
-		
+		return energia
+	}
+}
+// 2) 
+object canelones_alernativo
+{
+	var tieneQueso = false
+	var tieneSalsa = false
+	method ponerSalsa()
+	{
+		tieneSalsa = true
+	}
+	method sacarSalsa()
+	{
+		tieneSalsa = false 
+	}
+	method ponerQueso()
+	{
+		tieneQueso = true 
+	}
+	method sacarQueso()
+	{
+		tieneQueso = false 
 	}
 	method energiaPorGramo()
 	{
-		
+		 if (not tieneSalsa and not tieneQueso)
+		 {
+		 	return 20
+		 }
+		 else if (tieneSalsa and not tieneQueso)
+		 {
+		 	return 25
+		 }
+		 else if (not tieneSalsa and not tieneQueso)
+		 {
+		 	return 27 
+		 }
+		 else 
+		 {
+		 	return 32
+		 }
 	}
-}*/
+	
+}
 // despues, agregar mijo y canelones
